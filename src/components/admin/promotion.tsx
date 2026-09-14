@@ -176,7 +176,6 @@ export default function PromotionManagement() {
         status: "pending",
         raisedBy: "admin-1",
         raisedByName: "Admin User",
-        raisedDate: new Date().toISOString(),
         approvalWorkflowId: promotionForm.approvalWorkflowId,
         comments: promotionForm.comments,
       });
@@ -213,7 +212,6 @@ export default function PromotionManagement() {
           status: "pending",
           raisedBy: "admin-1",
           raisedByName: "Admin User",
-          raisedDate: new Date().toISOString(),
         });
       }
     });

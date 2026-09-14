@@ -971,3 +971,16 @@ export type AdminModuleTab =
   | "survey-feedback"
   | "reports-analytics"
   | "notifications-audit";
+
+export type HodModuleTab =
+  | "hod-dashboard"
+  | "hod-my-team"
+  | "hod-approvals"
+  | "hod-leave-approvals"
+  | "hod-scheduling"
+  | "hod-job-requisitions"
+  | "hod-appraisals"
+  | "hod-promotions"
+  | "hod-exit-requests"
+  | "hod-disciplinary"
+  | "hod-reports";

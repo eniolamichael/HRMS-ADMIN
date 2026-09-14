@@ -222,7 +222,7 @@ export default function AttendanceScheduling() {
     if (editingScheduleId) {
       updateWorkSchedule(editingScheduleId, scheduleForm);
     } else {
-      addWorkSchedule({ ...scheduleForm, createdAt: new Date().toISOString(), employeeCount: 0 });
+      addWorkSchedule({ ...scheduleForm, employeeCount: 0 });
     }
     setScheduleDialogOpen(false);
   };

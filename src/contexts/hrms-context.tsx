@@ -248,7 +248,7 @@ export interface HrmsContextType {
 
   // Attendance & Scheduling
   workSchedules: WorkSchedule[];
-  addWorkSchedule: (item: WithoutId<WorkSchedule>) => void;
+  addWorkSchedule: (item: Omit<WorkSchedule, "id" | "createdAt">) => void;
   updateWorkSchedule: (id: string, item: Partial<WorkSchedule>) => void;
   deleteWorkSchedule: (id: string) => void;
   timeBlocks: TimeBlock[];
@@ -342,13 +342,13 @@ export interface HrmsContextType {
 
   // Promotion
   promotionRequests: PromotionRequest[];
-  addPromotionRequest: (item: WithoutId<PromotionRequest>) => void;
+  addPromotionRequest: (item: Omit<PromotionRequest, "id" | "raisedDate">) => void;
   updatePromotionRequest: (id: string, item: Partial<PromotionRequest>) => void;
   deletePromotionRequest: (id: string) => void;
   approvePromotionRequest: (id: string) => void;
   declinePromotionRequest: (id: string) => void;
   promotionHistory: PromotionHistory[];
-  addPromotionHistory: (item: WithoutId<PromotionHistory>) => void;
+  addPromotionHistory: (item: Omit<PromotionHistory, "id" | "approvedDate">) => void;
   updatePromotionHistory: (id: string, item: Partial<PromotionHistory>) => void;
   deletePromotionHistory: (id: string) => void;
 
@@ -487,12 +487,12 @@ export interface HrmsContextType {
 
   // Notifications & Audit
   notifications: Notification[];
-  addNotification: (item: WithoutId<Notification>) => void;
+  addNotification: (item: Omit<Notification, "id" | "createdAt">) => void;
   updateNotification: (id: string, item: Partial<Notification>) => void;
   deleteNotification: (id: string) => void;
   markNotificationRead: (id: string) => void;
   auditLogs: AuditLog[];
-  addAuditLog: (item: WithoutId<AuditLog>) => void;
+  addAuditLog: (item: Omit<AuditLog, "id" | "timestamp">) => void;
   updateAuditLog: (id: string, item: Partial<AuditLog>) => void;
   deleteAuditLog: (id: string) => void;
 }
@@ -844,7 +844,7 @@ export function HrmsProvider({ children }: { children: ReactNode }) {
   // ACTIONS – Attendance & Scheduling
   // ========================================================================
 
-  const addWorkSchedule = useCallback((item: WithoutId<WorkSchedule>) => {
+  const addWorkSchedule = useCallback((item: Omit<WorkSchedule, "id" | "createdAt">) => {
     setWorkSchedules((prev) => [...prev, { ...item, id: generateId(), createdAt: now() }]);
   }, []);
 
@@ -1120,7 +1120,7 @@ export function HrmsProvider({ children }: { children: ReactNode }) {
   // ACTIONS – Promotion
   // ========================================================================
 
-  const addPromotionRequest = useCallback((item: WithoutId<PromotionRequest>) => {
+  const addPromotionRequest = useCallback((item: Omit<PromotionRequest, "id" | "raisedDate">) => {
     setPromotionRequests((prev) => [...prev, { ...item, id: generateId(), raisedDate: now() }]);
   }, []);
 
@@ -1148,7 +1148,7 @@ export function HrmsProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
-  const addPromotionHistory = useCallback((item: WithoutId<PromotionHistory>) => {
+  const addPromotionHistory = useCallback((item: Omit<PromotionHistory, "id" | "approvedDate">) => {
     setPromotionHistory((prev) => [...prev, { ...item, id: generateId(), approvedDate: now() }]);
   }, []);
 
@@ -1562,7 +1562,7 @@ export function HrmsProvider({ children }: { children: ReactNode }) {
   // ACTIONS – Notifications & Audit
   // ========================================================================
 
-  const addNotification = useCallback((item: WithoutId<Notification>) => {
+  const addNotification = useCallback((item: Omit<Notification, "id" | "createdAt">) => {
     setNotifications((prev) => [...prev, { ...item, id: generateId(), createdAt: now() }]);
   }, []);
 
@@ -1580,7 +1580,7 @@ export function HrmsProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
-  const addAuditLog = useCallback((item: WithoutId<AuditLog>) => {
+  const addAuditLog = useCallback((item: Omit<AuditLog, "id" | "timestamp">) => {
     setAuditLogs((prev) => [...prev, { ...item, id: generateId(), timestamp: now() }]);
   }, []);
 

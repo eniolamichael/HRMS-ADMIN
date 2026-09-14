@@ -228,7 +228,6 @@ export default function ReportsAnalytics() {
         module: "Reports",
         details: `Generated report: ${hrReports.find((r) => r.id === id)?.name}`,
         ipAddress: "192.168.1.1",
-        timestamp: new Date().toISOString(),
       });
     }, 2000);
   };
