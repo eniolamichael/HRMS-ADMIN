@@ -984,3 +984,15 @@ export type HodModuleTab =
   | "hod-exit-requests"
   | "hod-disciplinary"
   | "hod-reports";
+
+export type SupervisorModuleTab =
+  | "sup-dashboard"
+  | "sup-direct-reports"
+  | "sup-approvals"
+  | "sup-leave-approvals"
+  | "sup-job-requisitions"
+  | "sup-appraisals"
+  | "sup-promotions"
+  | "sup-exit-requests"
+  | "sup-disciplinary"
+  | "sup-reports";

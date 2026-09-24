@@ -15,7 +15,7 @@ export default function Home() {
           <p className="text-gray-400 text-lg">Enterprise Human Resource Management System</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link href="/admin">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition-all cursor-pointer group h-full">
               <div className="flex items-center gap-4 mb-4">
@@ -58,6 +58,31 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["My Team", "Approvals", "Leave", "Appraisals", "Requisitions", "Reports"].map((tag) => (
+                  <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/supervisor">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition-all cursor-pointer group h-full">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-amber-500/20 rounded-xl group-hover:bg-amber-500/30 transition-colors">
+                  <Users className="h-8 w-8 text-amber-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-white">Supervisor Portal</h2>
+                  <p className="text-gray-400 text-sm">First-Line Manager</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-sm mb-6">
+                Manage your direct reports, approve leave and exit requests,
+                conduct appraisals, view team attendance, and escalate cases.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Direct Reports", "Approvals", "Leave", "Attendance", "Appraisals", "Reports"].map((tag) => (
                   <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">
                     {tag}
                   </span>
